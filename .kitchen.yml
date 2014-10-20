@@ -1,0 +1,31 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_solo
+
+platforms:
+  - name: centos-7.0
+
+suites:
+  - name: default
+    data_bags_path: "test/integration/default/databags"
+    run_list: 
+      - "recipe[orientdb-docker]"
+    attributes:
+      docker: 
+        package: 
+           name: docker
+        image_cmd_timeout: 1200
+  - name: default_with_node_root_passwd
+    data_bags_path: "test/integration/default/databags"
+    run_list: 
+      - "recipe[orientdb-docker]"
+    attributes:
+      orientdb:
+        root_password: "test"
+      docker: 
+        package: 
+           name: docker
+        image_cmd_timeout: 1200
