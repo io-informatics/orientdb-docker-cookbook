@@ -92,6 +92,3 @@ Include `orientdb-docker` in your node's `run_list`:
 5. Run the tests, ensuring they all pass
 6. Submit a Pull Request
 
-## License and Authors
-
-Author:: Alexander De Leon (@alexjdl)
