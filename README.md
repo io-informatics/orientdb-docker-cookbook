@@ -94,4 +94,4 @@ Include `orientdb-docker` in your node's `run_list`:
 
 ## License and Authors
 
-Author:: Alexander De Leon (<@alexjdl>)
+Author:: Alexander De Leon (@alexjdl)
