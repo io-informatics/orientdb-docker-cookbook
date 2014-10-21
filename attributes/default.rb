@@ -1,6 +1,6 @@
 default[:orientdb][:docker_image]="ioinformatics/orientdb"
 default[:orientdb][:docker_image_tag]="latest"
 default[:orientdb][:docker_container]="orientdb"
-default[:orientdb][:config_path]="/etc/oriendb"
+default[:orientdb][:config_path]="/etc/orientdb"
 default[:orientdb][:databases_path]="/var/data/orientdb/databases"
 default[:orientdb][:backup_path]="/var/backup/orientdb"
