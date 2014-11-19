@@ -26,6 +26,7 @@ template "#{node[:orientdb][:config_path]}/orientdb-server-config.xml" do
 	source "orientdb-server-config.xml.erb"
 	variables :config => {
 		:root_password => root_password
+		:server => node[:orientdb][:server]
 	}
 	action :create
 end
