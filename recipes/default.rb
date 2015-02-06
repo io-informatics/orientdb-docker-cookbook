@@ -29,6 +29,7 @@ template "#{node[:orientdb][:config_path]}/orientdb-server-config.xml" do
 		:server => node[:orientdb][:server]
 	}
 	action :create
+	notifies :restart, "service[orientdb]", :delayed
 end
 
 # Run the docker container
@@ -39,8 +40,11 @@ docker_container "orientdb" do
 	detach true
 	port ['2424:2424', '2480:2480']
 	volume [
-		"#{node[:orientdb][:config_path]}:/opt/orientdb/config", 
-		"#{node[:orientdb][:databases_path]}:/opt/orientdb/databases", 
+		"#{node[:orientdb][:config_path]}:/opt/orientdb/config",
+		"#{node[:orientdb][:databases_path]}:/opt/orientdb/databases",
 		"#{node[:orientdb][:backup_path]}:/opt/orientdb/backup" ]
 end
 
+service "orientdb" do
+	action :nothing
+end
