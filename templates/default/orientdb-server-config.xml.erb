@@ -141,24 +141,8 @@
      <user resources="*" password="<%= @config[:root_password] %>" name="root"/>
     </users>
     <properties>
-        <!-- DATABASE POOL: size min/max -->
-        <entry name="db.pool.min" value="<%= @config[:server]['db.pool.min'] %>"/>
-        <entry name="db.pool.max" value="<%= @config[:server]['db.pool.max'] %>"/>
-
-        <!-- LOCAL CACHE: enable/disable-->
-        <entry name="cache.local.enabled" value="<%= @config[:server]['cache.local.enabled'] %>"/>
-
-        <!-- PROFILER: configures the profiler as <seconds-for-snapshot>,<archive-snapshot-size>,<summary-size> -->
-        <entry name="profiler.enabled" value="<%= @config[:server]['profiler.enabled'] %>"/>
-        <!-- <entry name="profiler.config" value="30,10,10" /> -->
-
-        <% if @config[:server]['sbtree.maxKeySize'] then %>
-        <entry name="sbtree.maxKeySize" value="<%= @config[:server]['sbtree.maxKeySize'] %>" />
+        <% @config[:server][:properties].each do | prop, value | %>
+        <entry name="<%= prop %>" value="<%= value %>"/>
         <% end %>
-
-        <!-- LOG: enable/Disable logging. Levels are: finer, fine, finest, info,
-            warning -->
-        <entry name="log.console.level" value="info"/>
-        <entry name="log.file.level" value="fine"/>
     </properties>
 </orient-server>

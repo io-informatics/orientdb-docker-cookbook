@@ -51,6 +51,12 @@ Platforms that support docker
     <td>The path to use as docker volume for backup files</td>
     <td><tt>/var/backup/orientdb</tt></td>
   </tr>
+  <tr>
+    <td><tt>['orientdb']['server']['properties']</tt></td>
+    <td>Hash</td>
+    <td>A Hash map of server configuration properties (https://github.com/orientechnologies/orientdb/wiki/Configuration)</td>
+    <td></td>
+  </tr>
 </table>
 
 ### Configuration of root password
@@ -63,7 +69,7 @@ Platforms that support docker
 {
   "id": "orientdb",
   "root_password": "MY_PASSWORD_!"
-} 
+}
 ```
 
 3) Otherwise, if you don't do any of the above a random root password will be created.
@@ -91,4 +97,3 @@ Include `orientdb-docker` in your node's `run_list`:
 4. Write tests for your change (if applicable)
 5. Run the tests, ensuring they all pass
 6. Submit a Pull Request
-

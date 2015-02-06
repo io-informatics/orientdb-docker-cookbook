@@ -5,7 +5,9 @@ default[:orientdb][:config_path]="/etc/orientdb"
 default[:orientdb][:databases_path]="/var/data/orientdb/databases"
 default[:orientdb][:backup_path]="/var/backup/orientdb"
 
-default[:orientdb][:server]['db.pool.min'] = 1
-default[:orientdb][:server]['db.pool.max'] = 50
-default[:orientdb][:server]['cache.local.enabled'] = true
-default[:orientdb][:server]['profiler.enabled'] = true
+default[:orientdb][:server][:properties]['db.pool.min'] = 1
+default[:orientdb][:server][:properties]['db.pool.max'] = 50
+default[:orientdb][:server][:properties]['cache.local.enabled'] = true
+default[:orientdb][:server][:properties]['profiler.enabled'] = true
+default[:orientdb][:server][:properties]['log.console.level'] = "info"
+default[:orientdb][:server][:properties]['log.file.level'] = "fine"
